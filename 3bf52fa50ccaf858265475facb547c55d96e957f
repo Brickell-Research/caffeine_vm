@@ -1,0 +1,23 @@
+gleam.toml
+  fdae1831b1469eaf 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "3bf52fa50ccaf858265475facb547c55d96e957f",
+  "prompts": {
+    "fdae1831b1469eaf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3deda7f1-593b-4ebe-bfa5-7ef73825426e",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "robertDurst <me@robdurst.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
