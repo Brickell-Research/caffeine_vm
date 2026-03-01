@@ -1,0 +1,61 @@
+src/cvm/github.gleam
+  2093aea9a1fb4d44 1-112
+src/cvm/commands/list.gleam
+  2093aea9a1fb4d44 1-56
+.github/workflows/release.yml
+  2093aea9a1fb4d44 1-184
+src/cvm/commands/install.gleam
+  2093aea9a1fb4d44 1-115
+main.mjs
+  2093aea9a1fb4d44 1-2
+src/cvm/commands/current.gleam
+  2093aea9a1fb4d44 1-11
+src/cvm.gleam
+  2093aea9a1fb4d44 1-75
+LICENSE
+  2093aea9a1fb4d44 1-21
+README.md
+  2093aea9a1fb4d44 1-24,26-50
+src/cvm/commands/which.gleam
+  2093aea9a1fb4d44 1-11
+src/cvm/output.gleam
+  2093aea9a1fb4d44 1-33
+test/cvm/env_test.gleam
+  2093aea9a1fb4d44 1-27
+src/cvm/commands/uninstall.gleam
+  2093aea9a1fb4d44 1-33
+src/cvm/commands/switch.gleam
+  2093aea9a1fb4d44 3-4,7,10-11,14-16,20-21
+.github/workflows/ci.yml
+  2093aea9a1fb4d44 1-37
+gleam.toml
+  2093aea9a1fb4d44 1-14
+src/cvm/env.gleam
+  2093aea9a1fb4d44 1-116
+test/cvm_test.gleam
+  2093aea9a1fb4d44 1-5
+.gitignore
+  2093aea9a1fb4d44 1-23
+test/cvm/github_test.gleam
+  2093aea9a1fb4d44 1-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "fd338730fdfdbe56eb377f536fe05fe12c4386c6",
+  "prompts": {
+    "2093aea9a1fb4d44": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "17ca9f12-7eb9-44f6-8faf-68d25488c61a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "robertDurst <me@robdurst.com>",
+      "messages": [],
+      "total_additions": 2429,
+      "total_deletions": 409,
+      "accepted_lines": 2001,
+      "overriden_lines": 3
+    }
+  }
+}
