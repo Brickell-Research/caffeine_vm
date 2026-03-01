@@ -153,20 +153,14 @@ jobs:
           end
 
           def install
-            if OS.mac? && Hardware::CPU.intel?
-              bin.install "cvm-#{version}-macos-x64" => "cvm"
-            elsif OS.mac? && Hardware::CPU.arm?
-              bin.install "cvm-#{version}-macos-arm64" => "cvm"
-            elsif OS.linux? && Hardware::CPU.intel?
-              bin.install "cvm-#{version}-linux-x64" => "cvm"
-            end
+            bin.install Dir["cvm-*"].first => "cvm"
           end
 
           def caveats
             <<~EOS
               To use caffeine versions managed by cvm, add this to your shell config:
 
-                export PATH="$HOME/.cvm/current:$PATH"
+                export PATH="\$HOME/.cvm/current:\$PATH"
 
               Then run: cvm install latest
             EOS
