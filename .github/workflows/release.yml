@@ -162,6 +162,16 @@ jobs:
             end
           end
 
+          def caveats
+            <<~EOS
+              To use caffeine versions managed by cvm, add this to your shell config:
+
+                export PATH="$HOME/.cvm/current:$PATH"
+
+              Then run: cvm install latest
+            EOS
+          end
+
           test do
             assert_match "Caffeine Version Manager", shell_output("#{bin}/cvm help")
           end

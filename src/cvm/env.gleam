@@ -85,6 +85,22 @@ fn shell(cmd: String, args: List(String)) -> Result(String, String) {
   |> result.map_error(fn(e) { "command failed: " <> cmd <> " " <> e.1 })
 }
 
+// --- PATH check ---
+
+/// Check whether ~/.cvm/current is present in the $PATH.
+pub fn is_current_on_path() -> Bool {
+  case get_env("PATH") {
+    Ok(path) ->
+      path
+      |> string.split(":")
+      |> list.any(fn(entry) {
+        entry == current_link()
+        || entry == cvm_home() <> "/current"
+      })
+    Error(_) -> False
+  }
+}
+
 // --- Version state ---
 
 /// Check whether a version is installed locally.
