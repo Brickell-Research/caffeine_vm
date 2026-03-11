@@ -75,29 +75,18 @@ fn do_install(version: String) -> Result(String, String) {
     |> result.map_error(fn(e) { "extract failed: " <> e.1 }),
   )
 
-  use source <- result.try(find_extracted_dir(extract_dir, version, plat))
+  use source <- result.try(find_binary(extract_dir, version, plat))
 
-  let dest = env.version_dir(version)
-  let _ = simplifile.create_directory_all(dest)
+  let dest = env.caffeine_binary(version)
+  let _ = simplifile.create_directory_all(env.version_dir(version))
 
-  // Copy entire release directory (ERTS + libs + wrapper script)
   use _ <- result.try(
-    shellout.command(
-      run: "cp",
-      with: ["-r", source <> "/.", dest],
-      in: ".",
-      opt: [],
-    )
-    |> result.map_error(fn(e) { "copy failed: " <> e.1 }),
+    shellout.command(run: "mv", with: [source, dest], in: ".", opt: [])
+    |> result.map_error(fn(e) { "move failed: " <> e.1 }),
   )
 
   use _ <- result.try(
-    shellout.command(
-      run: "chmod",
-      with: ["+x", env.caffeine_binary(version)],
-      in: ".",
-      opt: [],
-    )
+    shellout.command(run: "chmod", with: ["+x", dest], in: ".", opt: [])
     |> result.map_error(fn(e) { "chmod failed: " <> e.1 }),
   )
 
@@ -107,17 +96,20 @@ fn do_install(version: String) -> Result(String, String) {
   switch.run(version)
 }
 
-/// Locate the extracted release directory in the archive output.
-/// The tarball extracts to a directory named `caffeine-{version}-{platform}/`.
-fn find_extracted_dir(
+fn find_binary(
   dir: String,
   version: String,
   platform: String,
 ) -> Result(String, String) {
-  let path = dir <> "/caffeine-" <> version <> "-" <> platform
+  let path1 = dir <> "/caffeine-" <> version <> "-" <> platform
+  let path2 = dir <> "/caffeine"
 
-  case simplifile.is_directory(path) |> result.unwrap(False) {
-    True -> Ok(path)
-    False -> Error("could not find caffeine release directory in archive")
+  case
+    simplifile.is_file(path1) |> result.unwrap(False),
+    simplifile.is_file(path2) |> result.unwrap(False)
+  {
+    True, _ -> Ok(path1)
+    _, True -> Ok(path2)
+    _, _ -> Error("could not find caffeine binary in archive")
   }
 }
