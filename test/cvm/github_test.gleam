@@ -9,14 +9,14 @@ import gleeunit/should
 pub fn download_url_linux_test() {
   github.download_url("4.6.0", "linux-x64")
   |> should.equal(
-    "https://github.com/Brickell-Research/caffeine_lang/releases/download/v4.6.0/caffeine-4.6.0-linux-x64.tar.gz",
+    "https://github.com/Brickell-Research/caffeine/releases/download/v4.6.0/caffeine-4.6.0-linux-x64.tar.gz",
   )
 }
 
 pub fn download_url_macos_test() {
   github.download_url("4.5.1", "macos-arm64")
   |> should.equal(
-    "https://github.com/Brickell-Research/caffeine_lang/releases/download/v4.5.1/caffeine-4.5.1-macos-arm64.tar.gz",
+    "https://github.com/Brickell-Research/caffeine/releases/download/v4.5.1/caffeine-4.5.1-macos-arm64.tar.gz",
   )
 }
 
