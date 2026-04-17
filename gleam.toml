@@ -1,6 +1,6 @@
 
 name = "cvm"
-version = "1.0.4"
+version = "1.0.5"
 description = "Caffeine Version Manager"
 licences = ["MIT"]
 target = "javascript"

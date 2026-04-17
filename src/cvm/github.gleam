@@ -4,7 +4,7 @@ import gleam/list
 import gleam/string
 import shellout
 
-const repo = "Brickell-Research/caffeine_lang"
+const repo = "Brickell-Research/caffeine"
 
 /// Resolve the latest release version (e.g., "4.6.0").
 pub fn resolve_latest() -> Result(String, String) {
