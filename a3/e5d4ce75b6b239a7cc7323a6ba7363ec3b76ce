@@ -1,0 +1,34 @@
+src/cvm/update_check.gleam
+  3bf67566abf634c6 1-2,5,17,26,36,39-40,46-49,51-54
+test/cvm/update_check_test.gleam
+  3bf67566abf634c6 5,7,9,13,17,21,25,29,33
+gleam.toml
+  3bf67566abf634c6 3
+src/cvm.gleam
+  3bf67566abf634c6 79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "a3e5d4ce75b6b239a7cc7323a6ba7363ec3b76ce",
+  "prompts": {
+    "3bf67566abf634c6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ef251ea-fb4b-4e45-b728-80b5115c3323",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "robertDurst",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 169,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_bf999c3f841c45": {
+      "author": "robertDurst"
+    }
+  }
+}
