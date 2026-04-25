@@ -8,7 +8,6 @@ import cvm/commands/uninstall
 import cvm/commands/switch
 import cvm/commands/which
 import cvm/output
-import cvm/update_check
 import shellout
 
 pub fn main() {
@@ -28,10 +27,6 @@ pub fn main() {
       help()
       shellout.exit(1)
     }
-  }
-  case args {
-    ["list-remote"] | ["help"] | ["--help"] | ["-h"] | [] -> Nil
-    _ -> update_check.maybe_notify()
   }
 }
 
