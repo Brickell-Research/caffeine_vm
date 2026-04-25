@@ -76,9 +76,6 @@ EXAMPLES
     cvm install latest
     cvm install 4.6.0
     cvm use 4.5.1
-    cvm list
-
-ENV
-    CVM_NO_UPDATE_CHECK  Set to disable the new-version notice",
+    cvm list",
   )
 }
