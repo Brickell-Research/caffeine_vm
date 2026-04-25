@@ -8,10 +8,12 @@ import cvm/commands/uninstall
 import cvm/commands/switch
 import cvm/commands/which
 import cvm/output
+import cvm/update_check
 import shellout
 
 pub fn main() {
-  case argv.load().arguments {
+  let args = argv.load().arguments
+  case args {
     ["install"] -> run(install.run(""))
     ["install", version] -> run(install.run(version))
     ["use", version] -> run(switch.run(version))
@@ -26,6 +28,10 @@ pub fn main() {
       help()
       shellout.exit(1)
     }
+  }
+  case args {
+    ["list-remote"] | ["help"] | ["--help"] | ["-h"] | [] -> Nil
+    _ -> update_check.maybe_notify()
   }
 }
 
@@ -70,6 +76,9 @@ EXAMPLES
     cvm install latest
     cvm install 4.6.0
     cvm use 4.5.1
-    cvm list",
+    cvm list
+
+ENV
+    CVM_NO_UPDATE_CHECK  Set to disable the new-version notice",
   )
 }
